@@ -1,5 +1,6 @@
 package com.tukuntech.platform.tukun.domain.model.aggregates.patient;
 
+import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Medic;
 import jakarta.persistence.*;
 
 
