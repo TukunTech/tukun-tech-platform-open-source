@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping( "/patient/v1")
+@RequestMapping( "/v1/patient")
 public class PatientController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class PatientController {
         return ResponseEntity.ok(list);
     }
 
-    @PostMapping("/createpatient")
+    @PostMapping("/create")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> CreatePatient(@RequestBody Patient patient){
         Map<String, Object> exit = new HashMap<>();
@@ -46,7 +46,7 @@ public class PatientController {
     }
 
 
-    @PutMapping ("/updatepatient") //IMPORTANTE PONERLO PUT PARA ACTUALIZAR
+    @PutMapping ("/update") //IMPORTANTE PONERLO PUT PARA ACTUALIZAR
     @ResponseBody
     public ResponseEntity<Map<String, Object>> UpdatePatient(@RequestBody Patient patient){
         Map<String, Object> exit = new HashMap<>();
@@ -66,7 +66,7 @@ public class PatientController {
     }
 
 
-    @DeleteMapping("/deletePatient/{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> DeletePatient(@PathVariable("id") long id){
         Map<String, Object> exit = new HashMap<>();

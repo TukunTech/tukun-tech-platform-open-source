@@ -14,25 +14,19 @@ import java.util.List;
 @Service // Esta notacion Declaramos que toda la clase es un SERVICIO
 public class PatientServiceImpl implements PatientService {
 
-    @Autowired // Indica que esto va ser lo primero en cargar
+    @Autowired
     private PatientRepository patientRepository;
 
-    // Metodo para listar todo
-    @Override
-    public List<Patient> GetAllPatients() {
-        return patientRepository.findAll();
-    }
 
-    // Metodo para Actualizar o Guardar data
+    @Override
+    public List<Patient> GetAllPatients() { return patientRepository.findAll(); }
+
     @Override
     public Patient UpdateAndSavePatient(Patient patient) {
         return patientRepository.save(patient);
     }
 
-    // Metodo para Eliminar por ID(por boton, angular lo hace)
     @Override
-    public void DeletePatient(Long patientId) {
-        patientRepository.deleteById(patientId);
-    }
+    public void DeletePatient(Long patientId) { patientRepository.deleteById(patientId); }
 
 }
