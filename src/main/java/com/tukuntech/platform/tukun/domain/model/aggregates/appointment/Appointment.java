@@ -1,7 +1,11 @@
-package com.tukuntech.platform.tukun.domain.model.aggregates.patient;
+package com.tukuntech.platform.tukun.domain.model.aggregates.appointment;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Medic;
+import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Patient;
+import com.tukuntech.platform.tukun.domain.model.aggregates.patient.PaymentMethod;
+import com.tukuntech.platform.tukun.domain.model.aggregates.patient.TypeAppointment;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -14,10 +18,12 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medic_id")
     private Medic medic;
@@ -25,10 +31,12 @@ public class Appointment {
     private Date date;
     private String time;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_appointment")
     private TypeAppointment typeAppointment;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "payment_method")
     private PaymentMethod paymentMethod;
