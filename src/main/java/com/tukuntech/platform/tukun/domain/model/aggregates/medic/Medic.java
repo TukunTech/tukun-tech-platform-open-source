@@ -2,7 +2,6 @@ package com.tukuntech.platform.tukun.domain.model.aggregates.medic;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
-import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Specialization;
 import jakarta.persistence.*;
 
 @Entity

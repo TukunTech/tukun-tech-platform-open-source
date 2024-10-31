@@ -6,7 +6,7 @@ import org.springframework.data.domain.AbstractAggregateRoot;
 
 @Entity
 @Table(name = "bed")
-public class Bed extends AbstractAggregateRoot<Patient> {
+public class Bed extends AbstractAggregateRoot<Bed> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

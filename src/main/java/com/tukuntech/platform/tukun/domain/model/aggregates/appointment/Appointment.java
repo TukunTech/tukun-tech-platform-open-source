@@ -4,7 +4,6 @@ package com.tukuntech.platform.tukun.domain.model.aggregates.appointment;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Medic;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Patient;
-import com.tukuntech.platform.tukun.domain.model.aggregates.patient.PaymentMethod;
 import jakarta.persistence.*;
 
 import java.util.Date;

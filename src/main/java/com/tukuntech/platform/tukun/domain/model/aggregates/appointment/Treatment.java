@@ -1,5 +1,7 @@
-package com.tukuntech.platform.tukun.domain.model.aggregates.patient;
+package com.tukuntech.platform.tukun.domain.model.aggregates.appointment;
 
+import com.tukuntech.platform.tukun.domain.model.aggregates.patient.ConsultationHistory;
+import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Patient;
 import jakarta.persistence.*;
 
 import java.util.Date;
