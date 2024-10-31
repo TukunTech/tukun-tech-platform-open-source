@@ -1,5 +1,6 @@
 package com.tukuntech.platform.tukun.domain.model.aggregates.medic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Specialization;
 import jakarta.persistence.*;
@@ -16,6 +17,7 @@ public class Medic {
     private String dni;
     private int age;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "specialization_id")
     private Specialization specialization;
@@ -23,6 +25,7 @@ public class Medic {
     private String codeCmp;
     private String contact;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "nationality_id")
     private Nationality nationality;
