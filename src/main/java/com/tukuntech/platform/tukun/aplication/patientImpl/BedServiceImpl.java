@@ -15,7 +15,6 @@ public class BedServiceImpl implements BedService {
     @Autowired
     private BedRepository bedRepository;
 
-
     @Override
     public List<Bed> GetAllBed() {
         return bedRepository.findAll();
