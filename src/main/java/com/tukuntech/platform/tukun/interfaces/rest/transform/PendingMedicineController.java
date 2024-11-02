@@ -71,7 +71,7 @@ public class PendingMedicineController {
         return ResponseEntity.ok(exit);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{elderId}/medicamentos-pendientes/{id}")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> DeletePendingMedicine(@PathVariable("id") int id){
         Map<String, Object> exit = new HashMap<>();
