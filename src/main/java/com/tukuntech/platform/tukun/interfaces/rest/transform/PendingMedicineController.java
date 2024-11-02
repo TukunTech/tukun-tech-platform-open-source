@@ -29,7 +29,7 @@ public class PendingMedicineController {
     @PostMapping("/{id}/medicamentos-pendientes")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> CreatePendingMedicine
-            (@PathVariable("id") int elderId, @RequestBody PendingMedicine pendingMedicine){
+            (@PathVariable("id") long elderId, @RequestBody PendingMedicine pendingMedicine){
 
         Map<String, Object> exit = new HashMap<>();
         try {
