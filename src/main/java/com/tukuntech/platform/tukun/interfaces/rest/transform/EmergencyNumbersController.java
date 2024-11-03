@@ -20,8 +20,8 @@ public class EmergencyNumbersController {
 
     @GetMapping("elder/{id}/emergency-numbers")
     @ResponseBody
-    public ResponseEntity<List<EmergencyNumbers>> getEmergencyNumbersById(@PathVariable("id") int id) {
-        List<EmergencyNumbers> list = emergencyNumbersService.GetAllEmergencyNumbersById(id);
+    public ResponseEntity<List<EmergencyNumbers>> getEmergencyNumbersById() {
+        List<EmergencyNumbers> list = emergencyNumbersService.GetAllEmergencyNumbers();
         return ResponseEntity.ok(list);
     }
 
@@ -43,6 +43,25 @@ public class EmergencyNumbersController {
         } catch (Exception e) {
             e.printStackTrace();
             exit.put("message", "Register error");
+        }
+        return ResponseEntity.ok(exit);
+    }
+
+    @PutMapping("/update")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> UpdateEmergencyNumbers(@RequestBody EmergencyNumbers emergencyNumbers) {
+        Map<String, Object> exit = new HashMap<>();
+        try {
+            EmergencyNumbers objExit = emergencyNumbersService.UpdateAndSaveEmergencyNumbers(emergencyNumbers);
+            if (objExit == null) {
+                exit.put("message", "Update error");
+            } else {
+                exit.put("message", "Update success");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            exit.put("message", "Update error");
         }
         return ResponseEntity.ok(exit);
     }
