@@ -21,4 +21,9 @@ public class EmergencyNumbersServiceImpl implements EmergencyNumbersService {
 
     @Override
     public void DeleteEmergencyNumbers(Long emergencyNumbersId) { emergencyNumbersRepository.deleteById(emergencyNumbersId); }
+
+    @Override
+    public List<EmergencyNumbers> GetAllEmergencyNumbersById(int id) {
+        return List.of();
+    }
 }
