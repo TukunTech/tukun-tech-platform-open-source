@@ -9,5 +9,4 @@ public interface EmergencyNumbersService {
     public abstract EmergencyNumbers UpdateAndSaveEmergencyNumbers(EmergencyNumbers emergencyNumbers);
     public abstract void DeleteEmergencyNumbers(Long emergencyNumbersId);
 
-    List<EmergencyNumbers> GetAllEmergencyNumbersById(int id);
 }
