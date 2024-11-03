@@ -22,5 +22,4 @@ public class ContactName {
 
     public void setName(String name) { this.contactName = name; }
 
-
 }
