@@ -11,25 +11,36 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/clinicalHistory/v1")
+@RequestMapping(value = "/clinicalHistory/v1", produces = MediaType.APPLICATION_JSON_VALUE)
+@Tag(name = "ClinicalHistory", description = "Available Clinical History Endpoints")
 public class ClinicalHistoryController {
 
     @Autowired
     private ClinicalHistoryService clinicalHistoryService;
 
     @GetMapping
+    @Operation(summary = "Get all clinical histories", description = "Retrieve all clinical histories")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Clinical histories found"),
+            @ApiResponse(responseCode = "404", description = "Clinical histories not found")
+    })
     @ResponseBody
     public ResponseEntity<List<ClinicalHistory>> getAll() {
         List<ClinicalHistory> list = clinicalHistoryService.getAllClinicalHistories();
         return ResponseEntity.ok(list);
     }
 
-    @PostMapping("/createClinicalHistory")
+    @PostMapping
+    @Operation(summary = "Create a new clinical history", description = "Create a new clinical history entry")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Clinical history created"),
+            @ApiResponse(responseCode = "400", description = "Invalid input")
+    })
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> createClinicalHistory(@RequestBody ClinicalHistory clinicalHistory) {
+    public ResponseEntity<Map<String, Object>> create(@RequestBody ClinicalHistory clinicalHistory) {
         Map<String, Object> response = new HashMap<>();
         try {
-            clinicalHistory.setId(0L);  // Assuming ID should be 0 for a new entry
+            clinicalHistory.setId(0L);
             ClinicalHistory savedClinicalHistory = clinicalHistoryService.updateAndSaveClinicalHistory(clinicalHistory);
             response.put("message", savedClinicalHistory == null ? "Register Incorrect" : "Register Correct");
         } catch (Exception e) {
@@ -39,9 +50,15 @@ public class ClinicalHistoryController {
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/updateClinicalHistory")
+    @PutMapping("/{clinicalHistoryId}")
+    @Operation(summary = "Update a clinical history", description = "Update an existing clinical history entry")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Clinical history updated"),
+            @ApiResponse(responseCode = "400", description = "Invalid input"),
+            @ApiResponse(responseCode = "404", description = "Clinical history not found")
+    })
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> updateClinicalHistory(@RequestBody ClinicalHistory clinicalHistory) {
+    public ResponseEntity<Map<String, Object>> update(@PathVariable("clinicalHistoryId") Long id, @RequestBody ClinicalHistory clinicalHistory) {
         Map<String, Object> response = new HashMap<>();
         try {
             ClinicalHistory updatedClinicalHistory = clinicalHistoryService.updateAndSaveClinicalHistory(clinicalHistory);
@@ -53,9 +70,15 @@ public class ClinicalHistoryController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/deleteClinicalHistory/{id}")
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a clinical history", description = "Delete a clinical history entry by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Clinical history deleted"),
+            @ApiResponse(responseCode = "400", description = "Invalid input"),
+            @ApiResponse(responseCode = "404", description = "Clinical history not found")
+    })
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> deleteClinicalHistory(@PathVariable("id") Long id) {
+    public ResponseEntity<Map<String, Object>> delete(@PathVariable("id") Long id) {
         Map<String, Object> response = new HashMap<>();
         try {
             clinicalHistoryService.deleteClinicalHistory(id);
@@ -67,3 +90,4 @@ public class ClinicalHistoryController {
         return ResponseEntity.ok(response);
     }
 }
+
