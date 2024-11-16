@@ -2,16 +2,24 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.clinicalHistory.ClinicalHistory;
 import com.tukuntech.platform.tukun.domain.services.patientHistory.ClinicalHistoryService;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+
+
 @RestController
-@RequestMapping(value = "/clinicalHistory/v1", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/clinicalHistory/v1", produces = APPLICATION_JSON_VALUE)
 @Tag(name = "ClinicalHistory", description = "Available Clinical History Endpoints")
 public class ClinicalHistoryController {
 

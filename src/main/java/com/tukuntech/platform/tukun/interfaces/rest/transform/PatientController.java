@@ -3,6 +3,7 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Patient;
 import com.tukuntech.platform.tukun.domain.services.patient.PatientService;
+import com.tukuntech.platform.tukun.domain.util.appSetings;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -19,6 +20,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/patients", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
 @Tag(name = "Patient", description = "Available Patient Endpoints")
 public class PatientController {
 
@@ -97,7 +99,7 @@ public class PatientController {
             @ApiResponse(responseCode = "404", description = "Patient not found")
     })
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> DeletePatient(@PathVariable("id") long id){
+    public ResponseEntity<Map<String, Object>> DeletePatient(@PathVariable("patientId") long id){
         Map<String, Object> exit = new HashMap<>();
         try {
             patientService.DeletePatient(id);
