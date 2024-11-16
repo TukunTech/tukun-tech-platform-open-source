@@ -21,11 +21,9 @@ public class Allergy {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getAllergies() {return name;}
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAllergies(String allergies) {
+        this.name = allergies;
     }
 }

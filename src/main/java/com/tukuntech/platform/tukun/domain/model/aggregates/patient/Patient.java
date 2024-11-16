@@ -33,6 +33,7 @@ public class Patient extends AbstractAggregateRoot<Patient> {
     @JoinColumn(name = "nationality_id")
     private Nationality nationality;
 
+
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medical_insurance_id")
@@ -110,6 +111,8 @@ public class Patient extends AbstractAggregateRoot<Patient> {
         this.nationality = nationality;
     }
 
+
+
     public MedicalInsurance getMedicalInsurance() {
         return medicalInsurance;
     }
@@ -125,6 +128,8 @@ public class Patient extends AbstractAggregateRoot<Patient> {
     public void setAllergy(Allergy allergy) {
         this.allergy = allergy;
     }
+
+
 
 }
 

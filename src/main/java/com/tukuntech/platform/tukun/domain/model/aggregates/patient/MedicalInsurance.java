@@ -11,8 +11,8 @@ public class MedicalInsurance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String policyNumber;
+    private String medical;
+    //private String policyNumber;
 
     // Getters and setters
 
@@ -25,20 +25,16 @@ public class MedicalInsurance {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getMedical() {
+        return medical;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMedical(String medical) {
+        this.medical = medical;
     }
 
-    public String getPolicyNumber() {
-        return policyNumber;
-    }
+   // public String getPolicyNumber() {return policyNumber;}
 
-    public void setPolicyNumber(String policyNumber) {
-        this.policyNumber = policyNumber;
-    }
+   // public void setPolicyNumber(String policyNumber) {this.policyNumber = policyNumber;}
 }
 
