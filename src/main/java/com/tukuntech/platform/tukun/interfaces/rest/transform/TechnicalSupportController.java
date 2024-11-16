@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 @RestController
-@RequestMapping("/api/v1/soporte")
+@RequestMapping("/soporte/v1")
 public class TechnicalSupportController {
     @Autowired
     private TechnicalSupportService technicalSupportService;
@@ -24,31 +23,27 @@ public class TechnicalSupportController {
         return ResponseEntity.ok(list);
     }
 
-    @PostMapping("/mensaje")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Map<String,Object>> CreateTechnicalSupport(@RequestBody TechnicalSupport technicalSupport){
-            Map<String, Object> exit = new HashMap<>();
-            try {
-                technicalSupport.setId(0);
-                TechnicalSupport objExit = technicalSupportService.UpdateAndSaveTechnicalSupport(technicalSupport);
-                if(objExit == null){
-                    exit.put("message", "Register error");
-                }
-                else {
-                    exit.put("message", "Register success");
-                }
-
-            }
-
-            catch(Exception e){
-                e.printStackTrace();
+        Map<String, Object> exit = new HashMap<>();
+        try {
+            technicalSupport.setId(0);
+            TechnicalSupport objExit = technicalSupportService.UpdateAndSaveTechnicalSupport(technicalSupport);
+            if(objExit == null){
                 exit.put("message", "Register error");
             }
-            return ResponseEntity.ok(exit);
+            else {
+                exit.put("message", "Register success");
+            }
+
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
+            exit.put("message", "Register error");
+        }
+        return ResponseEntity.ok(exit);
     }
-
-
-
-
 
 }
