@@ -1,9 +1,11 @@
 package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 
+import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Specialization;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.BloodType;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Gender;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
+import com.tukuntech.platform.tukun.domain.services.medic.SpecializationService;
 import com.tukuntech.platform.tukun.domain.services.patient.BedService;
 import com.tukuntech.platform.tukun.domain.services.patient.BloodTypeService;
 import com.tukuntech.platform.tukun.domain.services.patient.GenderService;
@@ -31,6 +33,8 @@ public class UtilController {
 
     @Autowired
     private GenderService genderService;
+    @Autowired
+    private SpecializationService specializationService;
 
     @GetMapping("/listBlood")
     @ResponseBody
@@ -48,6 +52,12 @@ public class UtilController {
     @ResponseBody
     public List<Gender> listGender(){
         return genderService.getGenders();
+    }
+
+    @GetMapping("/listSpecialization")
+    @ResponseBody
+    public List<Specialization> listSpecialization(){
+        return specializationService.getSpecialization();
     }
 
 }
