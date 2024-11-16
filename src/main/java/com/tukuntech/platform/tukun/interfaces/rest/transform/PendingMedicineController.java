@@ -13,23 +13,23 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/adultos-mayores")
+@RequestMapping("/pendingMedicine/v1")
 public class PendingMedicineController {
 
     @Autowired
     private PendingMedicineService pendingMedicineService;
 
-    @GetMapping
+    @GetMapping("/pendingMedicines")
     @ResponseBody
     public ResponseEntity<List<PendingMedicine>> GetAll(){
         List<PendingMedicine> list = pendingMedicineService.GetAllPendingMedicines();
         return ResponseEntity.ok(list);
     }
 
-    @PostMapping("/{id}/medicamentos-pendientes")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Map<String, Object>> CreatePendingMedicine
-            (@PathVariable("id") long elderId, @RequestBody PendingMedicine pendingMedicine){
+            (@RequestBody PendingMedicine pendingMedicine){
 
         Map<String, Object> exit = new HashMap<>();
         try {
@@ -51,40 +51,45 @@ public class PendingMedicineController {
         return ResponseEntity.ok(exit);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/{pendingMedicineId}")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> UpdatePendingMedicine(@RequestBody PendingMedicine pendingMedicine){
+    public ResponseEntity<Map<String, Object>> updatePendingMedicine(
+            @PathVariable int pendingMedicineId,
+            @RequestBody PendingMedicine pendingMedicine) {
         Map<String, Object> exit = new HashMap<>();
         try {
+            pendingMedicine.setId(pendingMedicineId);
             PendingMedicine objExit = pendingMedicineService.UpdateAndSavePendingMedicine(pendingMedicine);
-            if(objExit == null){
+
+            if (objExit == null) {
                 exit.put("message", "Register error");
-            }
-            else {
+            } else {
                 exit.put("message", "Register success");
+                exit.put("data", objExit);
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             exit.put("message", "Register error");
+            exit.put("error", e.getMessage());
         }
         return ResponseEntity.ok(exit);
     }
 
-    @DeleteMapping("/{elderId}/medicamentos-pendientes/{id}")
+
+    @DeleteMapping("/{pendingMedicineId}")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> DeletePendingMedicine(@PathVariable("id") int id){
+    public ResponseEntity<Map<String, Object>> deletePendingMedicine(
+            @PathVariable("pendingMedicineId") int pendingMedicineId) {
         Map<String, Object> exit = new HashMap<>();
         try {
-            pendingMedicineService.DeletePendingMedicine(id);
+            pendingMedicineService.DeletePendingMedicine(pendingMedicineId);
             exit.put("message", "Delete success");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             exit.put("message", "Delete error");
+            exit.put("error", e.getMessage());
         }
         return ResponseEntity.ok(exit);
     }
-
 
 }
