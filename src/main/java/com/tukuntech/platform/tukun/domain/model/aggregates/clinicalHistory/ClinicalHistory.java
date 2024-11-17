@@ -92,27 +92,4 @@ public class ClinicalHistory extends AbstractAggregateRoot<ClinicalHistory> {
         this.date = date;
     }
 
-    public BloodType getBloodType() {
-        return bloodType;
-    }
-
-    public void setBloodType(BloodType bloodType) {
-        this.bloodType = bloodType;
-    }
-
-    public Nationality getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(Nationality nationality) {
-        this.nationality = nationality;
-    }
-
-    public Allergy getAllergy() {
-        return allergy;
-    }
-
-    public void setAllergy(Allergy allergy) {
-        this.allergy = allergy;
-    }
 }
