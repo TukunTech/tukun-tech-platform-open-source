@@ -19,7 +19,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 
 @RestController
-@RequestMapping(value = "/clinicalHistory/v1", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/v1/clinicalHistory", produces = APPLICATION_JSON_VALUE)
 @Tag(name = "ClinicalHistory", description = "Available Clinical History Endpoints")
 public class ClinicalHistoryController {
 
