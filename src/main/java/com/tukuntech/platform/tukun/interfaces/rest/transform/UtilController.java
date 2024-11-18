@@ -1,6 +1,7 @@
 package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 
+import com.tukuntech.platform.tukun.domain.model.aggregates.criticalAlerts.TypeAlert;
 import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Specialization;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.BloodType;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Gender;
@@ -8,7 +9,6 @@ import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
 import com.tukuntech.platform.tukun.domain.model.aggregates.pendingMedicine.Status;
 import com.tukuntech.platform.tukun.domain.services.criticalAlerts.TypeAlertService;
 import com.tukuntech.platform.tukun.domain.services.medic.SpecializationService;
-import com.tukuntech.platform.tukun.domain.services.patient.BedService;
 import com.tukuntech.platform.tukun.domain.services.patient.BloodTypeService;
 import com.tukuntech.platform.tukun.domain.services.patient.GenderService;
 import com.tukuntech.platform.tukun.domain.services.patient.NatonalityService;
@@ -77,7 +77,7 @@ public class UtilController {
 
     @GetMapping("/listTypeAlert")
     @ResponseBody
-    public List<TypeAlertService> listTypeAlert(){return typeAlertService.GetAllTypeAlerts();}
+    public List<TypeAlert> listTypeAlert(){return typeAlertService.GetAllTypeAlerts();}
 
 
 }
