@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
 @Entity
-@Table(name = "bed")
+@Table(name = "elderBed")
 public class ElderBed extends AbstractAggregateRoot<ElderBed> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

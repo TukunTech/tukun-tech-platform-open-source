@@ -3,6 +3,7 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Bed;
 import com.tukuntech.platform.tukun.domain.services.patient.BedService;
+import com.tukuntech.platform.tukun.domain.util.appSetings;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -19,6 +20,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/bed", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
 @Tag(name = "Bed", description = "Available Bed Endpoints")
 public class BedController {
 
