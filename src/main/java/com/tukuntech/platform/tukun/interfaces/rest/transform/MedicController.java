@@ -96,7 +96,7 @@ public class MedicController {
             @ApiResponse(responseCode = "404", description = "Medic not found")
     })
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> DeleteMedic(@PathVariable("id") long id){
+    public ResponseEntity<Map<String, Object>> DeleteMedic(@PathVariable("medicId") long id){
         Map<String, Object> exit = new HashMap<>();
         try{
             medicService.DeleteMedic(id);
