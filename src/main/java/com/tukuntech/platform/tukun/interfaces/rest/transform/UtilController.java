@@ -6,6 +6,7 @@ import com.tukuntech.platform.tukun.domain.model.aggregates.patient.BloodType;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Gender;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
 import com.tukuntech.platform.tukun.domain.model.aggregates.pendingMedicine.Status;
+import com.tukuntech.platform.tukun.domain.services.criticalAlerts.TypeAlertService;
 import com.tukuntech.platform.tukun.domain.services.medic.SpecializationService;
 import com.tukuntech.platform.tukun.domain.services.patient.BedService;
 import com.tukuntech.platform.tukun.domain.services.patient.BloodTypeService;
@@ -42,6 +43,10 @@ public class UtilController {
     @Autowired
     private StatusService statusService;
 
+    @Autowired
+    private TypeAlertService typeAlertService;
+
+
     @GetMapping("/listBlood")
     @ResponseBody
     public List<BloodType> listBlood(){
@@ -69,6 +74,10 @@ public class UtilController {
     @GetMapping("/listStatus")
     @ResponseBody
     public List<Status> listStatus(){return statusService.getStatus();}
+
+    @GetMapping("/listTypeAlert")
+    @ResponseBody
+    public List<TypeAlertService> listTypeAlert(){return typeAlertService.GetAllTypeAlerts();}
 
 
 }
