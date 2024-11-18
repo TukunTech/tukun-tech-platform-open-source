@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
 @RequestMapping("/pendingMedicine/v1")
 public class PendingMedicineController {
 
