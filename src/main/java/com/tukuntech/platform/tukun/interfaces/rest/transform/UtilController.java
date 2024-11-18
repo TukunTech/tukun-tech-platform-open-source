@@ -5,11 +5,13 @@ import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Specialization
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.BloodType;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Gender;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
+import com.tukuntech.platform.tukun.domain.model.aggregates.pendingMedicine.Status;
 import com.tukuntech.platform.tukun.domain.services.medic.SpecializationService;
 import com.tukuntech.platform.tukun.domain.services.patient.BedService;
 import com.tukuntech.platform.tukun.domain.services.patient.BloodTypeService;
 import com.tukuntech.platform.tukun.domain.services.patient.GenderService;
 import com.tukuntech.platform.tukun.domain.services.patient.NatonalityService;
+import com.tukuntech.platform.tukun.domain.services.pendingMedicine.StatusService;
 import com.tukuntech.platform.tukun.domain.util.appSetings;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,12 @@ public class UtilController {
 
     @Autowired
     private GenderService genderService;
+
     @Autowired
     private SpecializationService specializationService;
+
+    @Autowired
+    private StatusService statusService;
 
     @GetMapping("/listBlood")
     @ResponseBody
@@ -59,5 +65,10 @@ public class UtilController {
     public List<Specialization> listSpecialization(){
         return specializationService.getSpecialization();
     }
+
+    @GetMapping("/listStatus")
+    @ResponseBody
+    public List<Status> listStatus(){return statusService.getStatus();}
+
 
 }
