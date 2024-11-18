@@ -14,7 +14,7 @@ public class TypeAlertServiceImpl implements TypeAlertService {
     private TypeAlertRepository typeAlertRepository;
 
     @Override
-    public List<TypeAlertService> GetAllTypeAlerts() {
-        return List.of();
+    public List<TypeAlert> GetAllTypeAlerts() {
+        return typeAlertRepository.findAll();
     }
 }
