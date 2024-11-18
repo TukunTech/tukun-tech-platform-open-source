@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController
+@CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
 @RequestMapping("/soporte/v1")
 public class TechnicalSupportController {
     @Autowired
@@ -18,7 +19,7 @@ public class TechnicalSupportController {
 
     @GetMapping("/faqs")
     @ResponseBody
-    public ResponseEntity<List<TechnicalSupport>> GetAll(){
+    public ResponseEntity<List<TechnicalSupport>> GetAllFaqs(){
         List<TechnicalSupport> list = technicalSupportService.GetAllTechnicalSupports();
         return ResponseEntity.ok(list);
     }
