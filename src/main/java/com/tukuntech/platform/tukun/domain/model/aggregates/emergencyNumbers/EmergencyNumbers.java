@@ -1,6 +1,5 @@
 package com.tukuntech.platform.tukun.domain.model.aggregates.emergencyNumbers;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,11 +10,7 @@ public class EmergencyNumbers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String number;
-
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "contact_name_id")
-    private ContactName contactName;
+    private String contactName;
 
     // Getters and setters
 
@@ -27,8 +22,8 @@ public class EmergencyNumbers {
 
     public void setNumber(String number) { this.number = number; }
 
-    public ContactName getContactName() { return contactName; }
+    public String getContactName() { return contactName; }
 
-    public void setContactName(ContactName contactName) { this.contactName = contactName; }
+    public void setContactName(String contactName) { this.contactName = contactName; }
 
 }

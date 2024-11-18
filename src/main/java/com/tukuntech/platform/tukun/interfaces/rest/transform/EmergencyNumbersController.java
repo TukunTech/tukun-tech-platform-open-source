@@ -18,6 +18,7 @@ import java.util.Map;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value ="/emergencyNumbers/v1", produces = APPLICATION_JSON_VALUE)
 @Tag(name = "EmergencyNumbers", description = "Available EmergencyNumbers Endpoints")
 public class EmergencyNumbersController {
