@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
-@RequestMapping("/pendingMedicine/v1")
+@RequestMapping("/api/v1/pendingMedicine")
 public class PendingMedicineController {
 
     @Autowired
