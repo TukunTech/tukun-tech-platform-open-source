@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/criticalAlerts")
+@RequestMapping("/api/v1/criticalAlert")
 public class CriticalAlertsController {
 
     @Autowired
     private CriticalAlertsService criticalAlertsService;
 
-    @GetMapping
+    @GetMapping("criticalAlerts")
     @ResponseBody
     public ResponseEntity<List<CriticalAlerts>> getAllCriticalAlerts() {
         List<CriticalAlerts> list = criticalAlertsService.GetAllCriticalAlerts();
