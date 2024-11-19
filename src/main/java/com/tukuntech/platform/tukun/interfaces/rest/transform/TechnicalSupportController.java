@@ -3,6 +3,7 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Bed;
 import com.tukuntech.platform.tukun.domain.model.aggregates.technicalSupport.TechnicalSupport;
 import com.tukuntech.platform.tukun.domain.services.technicalSupport.TechnicalSupportService;
+import com.tukuntech.platform.tukun.domain.util.appSetings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController
-@CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
-@RequestMapping("/soporte/v1")
+@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN) // Configura los orígenes permitidos según tu necesidad
+@RequestMapping("/api/v1/soporte")
 public class TechnicalSupportController {
     @Autowired
     private TechnicalSupportService technicalSupportService;
