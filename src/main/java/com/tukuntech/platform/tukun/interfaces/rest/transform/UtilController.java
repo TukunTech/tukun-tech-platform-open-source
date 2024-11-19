@@ -3,9 +3,9 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.criticalAlerts.TypeAlert;
 import com.tukuntech.platform.tukun.domain.model.aggregates.medic.Specialization;
-import com.tukuntech.platform.tukun.domain.model.aggregates.patient.BloodType;
-import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Gender;
-import com.tukuntech.platform.tukun.domain.model.aggregates.patient.Nationality;
+import com.tukuntech.platform.tukun.domain.model.aggregates.patient.*;
+import com.tukuntech.platform.tukun.domain.services.elder.AllergyService;
+import com.tukuntech.platform.tukun.domain.services.elder.MedicalInsuranceService;
 import com.tukuntech.platform.tukun.domain.model.aggregates.pendingMedicine.Status;
 import com.tukuntech.platform.tukun.domain.services.criticalAlerts.TypeAlertService;
 import com.tukuntech.platform.tukun.domain.services.medic.SpecializationService;
@@ -45,6 +45,10 @@ public class UtilController {
 
     @Autowired
     private TypeAlertService typeAlertService;
+    @Autowired
+    private AllergyService allergyService;
+    @Autowired
+    private MedicalInsuranceService medicalInsuranceService;
 
 
     @GetMapping("/listBlood")
@@ -79,5 +83,11 @@ public class UtilController {
     @ResponseBody
     public List<TypeAlert> listTypeAlert(){return typeAlertService.GetAllTypeAlerts();}
 
+    @GetMapping("/listAllergy")
+    @ResponseBody
+    public List<Allergy> listAllergy(){return allergyService.getAllergy();}
+    @GetMapping("/listMedicalInsurance")
+    @ResponseBody
+    public List<MedicalInsurance> listMedicalInsurance(){return medicalInsuranceService.getMedicalInsurance();}
 
 }
