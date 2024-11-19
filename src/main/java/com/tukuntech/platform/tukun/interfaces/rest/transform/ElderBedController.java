@@ -2,6 +2,7 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.elder.ElderBed;
 import com.tukuntech.platform.tukun.domain.services.elder.ElderBedService;
+import com.tukuntech.platform.tukun.domain.util.appSetings;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,6 +19,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/elder-bed", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
 @Tag(name = "ElderBed", description = "Available ElderBed Endpoints")
 public class ElderBedController {
 
