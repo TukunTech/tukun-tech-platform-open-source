@@ -1,7 +1,8 @@
 package com.tukuntech.platform.tukun.domain.services.elder;
 
-import java.util.List;
 import com.tukuntech.platform.tukun.domain.model.aggregates.elder.Elder;
+
+import java.util.List;
 
 
 public interface ElderService {
