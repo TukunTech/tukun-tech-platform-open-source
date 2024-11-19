@@ -2,6 +2,7 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.elder.Elder;
 import com.tukuntech.platform.tukun.domain.services.elder.ElderService;
+import com.tukuntech.platform.tukun.domain.util.appSetings;
 import com.tukuntech.platform.tukun.infrastructure.persistance.jpa.elder.ElderRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -19,7 +20,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/elders", produces = APPLICATION_JSON_VALUE)
-@CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
+@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN) // Configura los orígenes permitidos según tu necesidad
 @Tag(name = "Elder", description = "Available Elder Endpoints")
 public class ElderController {
 
