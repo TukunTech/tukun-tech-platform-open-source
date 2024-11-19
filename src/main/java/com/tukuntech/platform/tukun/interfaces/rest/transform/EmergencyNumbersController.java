@@ -3,6 +3,7 @@ package com.tukuntech.platform.tukun.interfaces.rest.transform;
 
 import com.tukuntech.platform.tukun.domain.model.aggregates.emergencyNumbers.EmergencyNumbers;
 import com.tukuntech.platform.tukun.domain.services.emergencyNumbers.EmergencyNumbersService;
+import com.tukuntech.platform.tukun.domain.util.appSetings;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,7 +19,7 @@ import java.util.Map;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
 @RequestMapping(value ="/emergencyNumbers/v1", produces = APPLICATION_JSON_VALUE)
 @Tag(name = "EmergencyNumbers", description = "Available EmergencyNumbers Endpoints")
 public class EmergencyNumbersController {
