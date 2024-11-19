@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/criticalAlert/v1")
+@RequestMapping("/api/v1//criticalAlert")
 public class CriticalAlertsController {
 
     @Autowired
