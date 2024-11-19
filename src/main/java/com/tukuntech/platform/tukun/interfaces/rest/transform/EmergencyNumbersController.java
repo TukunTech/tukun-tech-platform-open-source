@@ -20,7 +20,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
-@RequestMapping(value ="/emergencyNumbers/v1", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value ="/api/v1/emergencyNumbers", produces = APPLICATION_JSON_VALUE)
 @Tag(name = "EmergencyNumbers", description = "Available EmergencyNumbers Endpoints")
 public class EmergencyNumbersController {
 
