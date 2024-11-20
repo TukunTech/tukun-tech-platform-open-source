@@ -19,7 +19,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/medics", produces = APPLICATION_JSON_VALUE)
-@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @Tag(name = "Medic", description = "Available Medic Endpoints")
 public class MedicController {
 

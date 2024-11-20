@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @RequestMapping("/api/v1/pendingMedicine")
 public class PendingMedicineController {
 

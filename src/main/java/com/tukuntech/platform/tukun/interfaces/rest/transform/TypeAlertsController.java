@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*") // Configura los orígenes permitidos según tu necesidad
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @RequestMapping("/api/v1/typeAlerts")
 public class TypeAlertsController {
     @Autowired

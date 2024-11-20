@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController
-@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN) // Configura los orígenes permitidos según tu necesidad
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @RequestMapping("/api/v1/soporte")
 public class TechnicalSupportController {
     @Autowired

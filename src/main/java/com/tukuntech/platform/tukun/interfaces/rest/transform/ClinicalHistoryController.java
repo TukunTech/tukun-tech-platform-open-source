@@ -20,6 +20,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/clinicalHistory", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @Tag(name = "ClinicalHistory", description = "Available Clinical History Endpoints")
 public class ClinicalHistoryController {
 

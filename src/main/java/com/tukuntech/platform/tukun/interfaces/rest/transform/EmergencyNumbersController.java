@@ -19,7 +19,7 @@ import java.util.Map;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
-@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @RequestMapping(value ="/api/v1/emergencyNumbers", produces = APPLICATION_JSON_VALUE)
 @Tag(name = "EmergencyNumbers", description = "Available EmergencyNumbers Endpoints")
 public class EmergencyNumbersController {

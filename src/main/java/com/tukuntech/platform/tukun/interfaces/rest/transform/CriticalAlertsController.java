@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/criticalAlert")
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
+
 public class CriticalAlertsController {
 
     @Autowired

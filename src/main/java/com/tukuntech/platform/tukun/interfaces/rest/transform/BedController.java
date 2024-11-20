@@ -20,7 +20,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/bed", produces = APPLICATION_JSON_VALUE)
-@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN)
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @Tag(name = "Bed", description = "Available Bed Endpoints")
 public class BedController {
 

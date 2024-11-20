@@ -18,6 +18,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/appointments", produces = APPLICATION_JSON_VALUE)
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @Tag(name = "Appointment", description = "Available Appointment Endpoints")
 public class AppointmentController {
 

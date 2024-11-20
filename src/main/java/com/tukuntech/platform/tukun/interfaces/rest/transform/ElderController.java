@@ -20,7 +20,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/elders", produces = APPLICATION_JSON_VALUE)
-@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN) // Configura los orígenes permitidos según tu necesidad
+@CrossOrigin(origins = "https://tukuntech.netlify.app")
 @Tag(name = "Elder", description = "Available Elder Endpoints")
 public class ElderController {
 
