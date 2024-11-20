@@ -14,7 +14,6 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 public class AuthController {
     private final AuthService authService;
 
-    @CrossOrigin(origins = "https://tukuntech.netlify.app")
     @PostMapping(value = "/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         AuthResponse response = authService.login(request);
