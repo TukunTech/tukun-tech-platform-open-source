@@ -9,11 +9,12 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/auth", produces = APPLICATION_JSON_VALUE) // Alinear con SecurityConfig
-@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN) // Configuración de CORS
+//@CrossOrigin(origins = appSetings.URL_CROSS_ORIGIN) // Configuración de CORS
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
 
+    @CrossOrigin(origins = "https://tukuntech.netlify.app")
     @PostMapping(value = "/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         AuthResponse response = authService.login(request);
